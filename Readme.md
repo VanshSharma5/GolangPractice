@@ -83,3 +83,61 @@ default:
 	fmt.Println("What is this Bro?")
 }
 ```
+
+9. The for loop and while loop in go can be implement using the same for keyword. Also Go have a pythonic way to iterate over the collections using range keyword.
+```go
+// Regular for loop we studied in C, C++ and java...
+for d := 0; d < len(days); d++ {
+	fmt.Println(days[d])
+}
+
+// Pythonic For loop that Go comes with
+for i := range days { // Way-1: Just getting the index
+	fmt.Println(days[i])
+}
+for index, day := range days { // Way-2: Getting the index along with the value itself
+	fmt.Printf("Index is %v and %v is value\n", index, day)
+}
+
+// For act like while when only single condition is passed
+for roughValue < 10 {
+	fmt.Println("Value is ", roughValue)
+	roughValue++
+}
+```
+
+10. Go supports goto statements just like does. But here if you create a label then you must use it else it cause an error.
+```go
+faa := 1
+customloop:
+	fmt.Println("Now Faa no. ", faa)
+	faa++
+	if faa < 10 {
+		goto customloop
+	}
+```
+
+11. The variadic functions are pretty easy up here. Also go can return multiple values from a function.
+[!NOTE]: Go also have lambda/anonymus functions and immidiately executed functions.
+```go
+// variadic functions takes variable number of parameters
+func proAdder(values ...int) int {
+	fmt.Printf("Type of values %T\n", values)
+	total := 0
+
+	for _, val := range values {
+		total += val
+	}
+	return total
+}
+
+// Fixed number of arguments
+func adder(valOne int, valTwo int) int {
+	return valOne + valTwo
+}
+
+// Function returns multiple value use like => holdValueOne, holdValueRwo := ReturnsTwoValue()
+func ReturnsTwoValue() (int, string) {// must specify the type of both returnee here with the parenthesis
+	return 67, "Hellow Duniya"
+}
+```
