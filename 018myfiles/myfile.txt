@@ -1,0 +1,1 @@
+While Propositional Logic can represent simple facts, it lacks the expressiveness needed to represent relationships  or general rules about classes of objects [958084467, 51]. For example, in Propositional Logic, "Every human is mortal" would require a separate propositional variable for every individual human failing to capture the underlying universal relationship.

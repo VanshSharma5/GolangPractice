@@ -3,7 +3,7 @@
 1. https://pkg.go.dev
 2. https://go.dev/doc/
 3. https://go.dev/doc/effective_go {It's demonstrate how tp write better code in go}
-
+4. https://youtube.com/playlist?list=PLRAV69dS1uWQGDQoBYMZWKjzuhCaOnBpa&si=edc3EPAoEHywv5BK
 
 # My Experiences about Go learning
 
@@ -118,7 +118,7 @@ customloop:
 ```
 
 11. The variadic functions are pretty easy up here. Also go can return multiple values from a function.
-[!NOTE]: Go also have lambda/anonymus functions and immidiately executed functions.
+> [!NOTE]: Go also have lambda/anonymus functions and immidiately executed functions.
 ```go
 // variadic functions takes variable number of parameters
 func proAdder(values ...int) int {
@@ -141,3 +141,22 @@ func ReturnsTwoValue() (int, string) {// must specify the type of both returnee 
 	return 67, "Hellow Duniya"
 }
 ```
+
+12. The method is something like a nameless function which takes the argument and returns another function there kind like decorators but not actual are.
+> [!NOTE]: The methods when takes the parameter then it cretes a copy of the actual object it called with so any changes by the method on the object do not persist after the method returns.
+
+> we can make them persist by passing the object reference(address) to the pointer argument.
+
+13. defer is something which helps to ensure some statements must be execute before the function ends. Those statements are pushed onto a stack i.e. LIFO order.
+```go
+func main() {
+	defer fmt.Println("")
+	defer fmt.Print("!")
+	defer fmt.Print("World")
+	fmt.Print("Hello")
+	fmt.Print(" ")
+}
+```
+> OUTPUT: `Hello World!`
+
+14. 
