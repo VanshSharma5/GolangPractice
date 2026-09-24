@@ -159,4 +159,33 @@ func main() {
 ```
 > OUTPUT: `Hello World!`
 
-14. 
+14. The web request handling is not something new here, just the libraries doing serialization and deseriliazation.
+> [!NOTE]: Just keep in mind about the go has static sementics and structs no high level constructs abstract out the job of programmer. So, you can juce out more from the hardware.
+
+15. As the node manage its versoning and dependencies in package.json, the go creates the "go.mod" file to making the tasks more simpler.
+```bash
+go get -u github.com/gorilla/mux
+```
+That's how we fetch the go packages from web into out projects.[It gonna use the internet]
+
+16. Every thing is Ok but the installed package is shown as indirect(Even though it works fine) in our mod file how to fix it . Run `go mod tidy` is an expensive operation. As it ensures your go projest stays healthy, safe and intact.
+
+What actualy it do.
++ Adds Missing Dependencies
++ Removes Unused Dependencies
++ Updates and Cleans go.sum
+some another commands are
+```bash
+go mod verify # just verify the integrity of the modules. Try it after changing the hash value in "go.sum"
+go list # list the packages required by the current project
+go list all # list all the available packages 
+go mod graph # list the dependencies of the packages our project is dependent on
+```
+17. It is not recomended to manualy go and exit the go.mod file by hands. So, set of commands are use to alter the mod file.
+```bash
+go mod edit -g 1.27.0 # update the go version
+go mod edit -module new_module_name  # update the name of the current module
+go mod vender # bring the entire module and put into the vendor folder to cache it local
+```
+> <mark>**Q: Why "go mod vender"** ?</mark> <br>
+> **Ans:** It allows use to cache the modules so when we run them we can refer them to use rather than bringign them again from internet[Even though the GO caches them]. Use `go run -mod=vendor main.go`, this refers the packages available in vendor folder.
